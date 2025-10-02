@@ -16,6 +16,14 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
+        .unit-section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+        }
+        
         .artifact-tile {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -103,14 +111,15 @@
         
         .tile-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
         
         .upload-tile {
             background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
             border: 2px dashed #48bb78;
-            min-height: 280px;
+            min-height: 260px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -126,37 +135,42 @@
         }
         
         .reflection-container {
-            background: white;
-            border-radius: 16px;
-            padding: 32px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 12px;
+            padding: 28px;
+            margin-top: 24px;
             border-left: 4px solid #667eea;
-            margin-bottom: 24px;
-            transition: all 0.3s ease;
-        }
-        
-        .reflection-container:hover {
-            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.15);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         
         .reflection-content {
-            color: #4a5568;
+            color: #2d3748;
             line-height: 1.8;
             font-size: 1rem;
             white-space: pre-wrap;
             word-wrap: break-word;
+            margin-top: 16px;
         }
         
         .unit-badge {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 48px;
-            height: 48px;
+            min-width: 56px;
+            height: 56px;
             border-radius: 12px;
             font-weight: bold;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             margin-right: 16px;
+            padding: 0 12px;
+        }
+        
+        .unit-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e2e8f0;
         }
         
         .smooth-scroll {
@@ -173,8 +187,7 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="#home" class="nav-link text-gray-700 font-medium">Home</a>
                     <a href="#about" class="nav-link text-gray-700 font-medium">About</a>
-                    <a href="#artifacts" class="nav-link text-gray-700 font-medium">Artefacts</a>
-                    <a href="#reflections" class="nav-link text-gray-700 font-medium">Reflections</a>
+                    <a href="#units" class="nav-link text-gray-700 font-medium">Units</a>
                     <a href="#contact" class="nav-link text-gray-700 font-medium">Contact</a>
                 </div>
                 <button id="menuBtn" class="md:hidden text-gray-700">
@@ -186,8 +199,7 @@
             <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-2">
                 <a href="#home" class="block text-gray-700 py-2">Home</a>
                 <a href="#about" class="block text-gray-700 py-2">About</a>
-                <a href="#artifacts" class="block text-gray-700 py-2">Artefacts</a>
-                <a href="#reflections" class="block text-gray-700 py-2">Reflections</a>
+                <a href="#units" class="block text-gray-700 py-2">Units</a>
                 <a href="#contact" class="block text-gray-700 py-2">Contact</a>
             </div>
         </div>
@@ -199,10 +211,10 @@
             <h1 class="text-5xl md:text-6xl font-bold mb-6">Security & Risk Management</h1>
             <p class="text-xl md:text-2xl mb-8 opacity-90">E-Portfolio 2025</p>
             <p class="text-lg max-w-2xl mx-auto mb-10">
-                A comprehensive collection of artifacts, assessments, and reflections documenting my learning journey in security frameworks, risk analysis, and compliance management.
+                A comprehensive collection of artifacts, assessments, and reflections documenting my learning journey across 12 units in security frameworks, risk analysis, and compliance management.
             </p>
-            <a href="#artifacts" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 inline-block">
-                View Artifacts
+            <a href="#units" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 inline-block">
+                Explore Units
             </a>
         </div>
     </section>
@@ -215,10 +227,10 @@
                 <div>
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Course Overview</h3>
                     <p class="text-gray-600 leading-relaxed mb-4">
-                        This portfolio showcases my work in Security & Risk Management, covering essential topics including information security frameworks, risk assessment methodologies, compliance standards, and security governance.
+                        This portfolio showcases my comprehensive work in Security & Risk Management across 12 structured units, covering essential topics from foundational security concepts to advanced quantitative risk modeling and future trends in the field.
                     </p>
                     <p class="text-gray-600 leading-relaxed">
-                        Through practical assignments and theoretical analysis, I've developed competencies in identifying security threats, evaluating risks, and implementing appropriate controls.
+                        Each unit contains artifacts demonstrating practical application of concepts, alongside detailed reflections capturing my learning journey, challenges overcome, and insights gained.
                     </p>
                 </div>
                 <div>
@@ -226,19 +238,19 @@
                     <ul class="space-y-3 text-gray-600">
                         <li class="flex items-start">
                             <span class="text-purple-600 mr-2">✓</span>
-                            <span>Understand and apply security frameworks (ISO 27001, NIST, CIS)</span>
+                            <span>Master security frameworks and risk assessment methodologies</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-purple-600 mr-2">✓</span>
-                            <span>Conduct comprehensive risk assessments and threat modeling</span>
+                            <span>Apply threat modeling and management techniques</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-purple-600 mr-2">✓</span>
-                            <span>Implement security controls and governance structures</span>
+                            <span>Implement industry security and risk standards</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-purple-600 mr-2">✓</span>
-                            <span>Ensure compliance with regulatory requirements</span>
+                            <span>Develop quantitative risk models and DR strategies</span>
                         </li>
                     </ul>
                 </div>
@@ -246,303 +258,139 @@
         </div>
     </section>
 
-    <!-- Artifacts Section -->
-    <section id="artifacts" class="py-20 bg-gray-50">
+    <!-- Units Section -->
+    <section id="units" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
-            <h2 class="section-title text-4xl font-bold text-gray-800 mb-4">Artifacts</h2>
-            <p class="text-gray-600 mb-12 text-lg">Course deliverables and assignments organized by unit</p>
+            <h2 class="section-title text-4xl font-bold text-gray-800 mb-4">Course Units</h2>
+            <p class="text-gray-600 mb-12 text-lg">Artifacts and reflections organized by unit</p>
             
             <!-- UNIT 1 -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+            <div class="unit-section">
+                <div class="unit-header">
                     <span class="unit-badge bg-purple-100 text-purple-600">1</span>
-                    Unit 1: Introduction to Security & Risk Management
-                </h3>
+                    <h3 class="text-2xl font-bold text-gray-800">An Introduction to Security and Risk Management</h3>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">📚 Artifacts</h4>
                 <div class="tile-grid">
-                    <!-- Example PDF Artifact -->
-                    <div class="artifact-tile bg-white rounded-xl p-6 shadow-lg">
-                        <div class="file-icon pdf-icon">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"/>
-                                <text x="50%" y="65%" text-anchor="middle" fill="white" font-size="6" font-weight="bold">PDF</text>
-                            </svg>
-                        </div>
-                        <div class="mb-3">
-                            <span class="badge bg-blue-100 text-blue-600">Essay</span>
-                            <span class="badge bg-green-100 text-green-600 ml-2">Week 2</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-800 mb-2">Security Frameworks Analysis</h4>
-                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Comprehensive analysis of ISO 27001 framework and its application in modern organizations.</p>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-                            <span class="text-sm text-gray-500">Oct 15, 2024</span>
-                            <a href="./artifacts/unit1-frameworks.pdf" class="text-purple-600 hover:text-purple-700 font-semibold text-sm flex items-center">
-                                Download
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Upload Tile for Unit 1 -->
-                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts folder\n2. Copy the artifact tile template\n3. Edit index.html and add your details')">
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts/ folder\n2. Copy the artifact tile template below\n3. Paste it above this upload tile\n4. Update title, description, and file path')">
                         <div class="file-icon upload-icon">
                             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
                             </svg>
                         </div>
                         <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
-                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions to add your Unit 1 evidence</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions</p>
                     </div>
                 </div>
-            </div>
-
-            <!-- UNIT 2 -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                    <span class="unit-badge bg-blue-100 text-blue-600">2</span>
-                    Unit 2: Risk Assessment Fundamentals
-                </h3>
-                <div class="tile-grid">
-                    <!-- Example Word Artifact -->
-                    <div class="artifact-tile bg-white rounded-xl p-6 shadow-lg">
-                        <div class="file-icon word-icon">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"/>
-                                <text x="50%" y="65%" text-anchor="middle" fill="white" font-size="5" font-weight="bold">DOC</text>
-                            </svg>
-                        </div>
-                        <div class="mb-3">
-                            <span class="badge bg-red-100 text-red-600">Report</span>
-                            <span class="badge bg-green-100 text-green-600 ml-2">Week 4</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-800 mb-2">Risk Assessment Report</h4>
-                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Detailed risk assessment for a fictional financial institution with mitigation strategies.</p>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-                            <span class="text-sm text-gray-500">Nov 10, 2024</span>
-                            <a href="./artifacts/unit2-risk-assessment.docx" class="text-purple-600 hover:text-purple-700 font-semibold text-sm flex items-center">
-                                Download
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Upload Tile for Unit 2 -->
-                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts folder\n2. Copy the artifact tile template\n3. Edit index.html and add your details')">
-                        <div class="file-icon upload-icon">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                            </svg>
-                        </div>
-                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
-                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions to add your Unit 2 evidence</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- UNIT 3 -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                    <span class="unit-badge bg-indigo-100 text-indigo-600">3</span>
-                    Unit 3: Threat Modeling & Analysis
-                </h3>
-                <div class="tile-grid">
-                    <!-- Upload Tile for Unit 3 -->
-                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts folder\n2. Copy the artifact tile template\n3. Edit index.html and add your details')">
-                        <div class="file-icon upload-icon">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                            </svg>
-                        </div>
-                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
-                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions to add your Unit 3 evidence</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- UNIT 4 -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                    <span class="unit-badge bg-pink-100 text-pink-600">4</span>
-                    Unit 4: Security Controls & Implementation
-                </h3>
-                <div class="tile-grid">
-                    <!-- Upload Tile for Unit 4 -->
-                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts folder\n2. Copy the artifact tile template\n3. Edit index.html and add your details')">
-                        <div class="file-icon upload-icon">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                            </svg>
-                        </div>
-                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
-                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions to add your Unit 4 evidence</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- UNIT 5 -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                    <span class="unit-badge bg-green-100 text-green-600">5</span>
-                    Unit 5: Compliance & Governance
-                </h3>
-                <div class="tile-grid">
-                    <!-- Upload Tile for Unit 5 -->
-                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts folder\n2. Copy the artifact tile template\n3. Edit index.html and add your details')">
-                        <div class="file-icon upload-icon">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                            </svg>
-                        </div>
-                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
-                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions to add your Unit 5 evidence</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- UNIT 6 -->
-            <div>
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                    <span class="unit-badge bg-yellow-100 text-yellow-700">6</span>
-                    Unit 6: Incident Response & Recovery
-                </h3>
-                <div class="tile-grid">
-                    <!-- Upload Tile for Unit 6 -->
-                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts folder\n2. Copy the artifact tile template\n3. Edit index.html and add your details')">
-                        <div class="file-icon upload-icon">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                            </svg>
-                        </div>
-                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
-                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions to add your Unit 6 evidence</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reflections Section -->
-    <section id="reflections" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title text-4xl font-bold text-gray-800 mb-4">Reflections</h2>
-            <p class="text-gray-600 mb-12 text-lg">Personal insights and learning journey (500-1000 words per unit)</p>
-            
-            <div class="max-w-4xl mx-auto space-y-8">
-                <!-- Unit 1 Reflection -->
+                
                 <div class="reflection-container">
-                    <div class="flex items-center mb-4">
-                        <span class="unit-badge bg-purple-100 text-purple-600">1</span>
-                        <h3 class="text-2xl font-bold text-gray-800">Unit 1 Reflection</h3>
-                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">💭 Unit 9 Reflection</h4>
                     <div class="reflection-content">
-Paste your 500-1000 word reflection for Unit 1 here. You can write about your learning experience, key takeaways, challenges faced, and how the knowledge gained relates to real-world scenarios.
+Paste your 500-1000 word reflection here. Share insights on business continuity planning and disaster recovery strategies.
 
-This container will automatically expand to fit your content. Simply replace this placeholder text with your actual reflection.
-
-Tips for writing reflections:
-- Start with what you learned
-- Discuss challenges and how you overcame them
-- Connect theory to practice
-- Reflect on personal growth
-- Consider future applications
+Replace this placeholder text with your detailed reflection on Unit 9.
                     </div>
-                    <div class="mt-6 pt-4 border-t border-gray-200">
-                        <span class="text-sm text-gray-500">Last updated: October 2024</span>
-                    </div>
-                </div>
-
-                <!-- Unit 2 Reflection -->
-                <div class="reflection-container">
-                    <div class="flex items-center mb-4">
-                        <span class="unit-badge bg-blue-100 text-blue-600">2</span>
-                        <h3 class="text-2xl font-bold text-gray-800">Unit 2 Reflection</h3>
-                    </div>
-                    <div class="reflection-content">
-Summary of 'Risks of Digitalisation of Business Models' by Kovaitė and Stankevičienė (2019)
-This article investigates the types of risks associated with the digitalization of business models driven by Industry 4.0. The authors aim to identify these risks and determine their impact on different components of a business model. They utilize a multi-criteria decision support method called FARE (Factor relationship) and a newly developed risk assessment matrix called RADi (Risk Assessment of Digitalisation of Business Model).
-The research identifies six main types of risks: technical, competence, acceptance by staff, acceptance by customers and partners, data privacy and security, and financial risks. The study found that the highest impact of these risks is on customer channels, key resources, and revenue streams, while key partners are least affected. The article emphasizes that Industry 4.0 introduces new and unpredictable risks due to its rapid digitalization drivers like the Internet of Things (IoT), big data, cloud computing, robotics, and artificial intelligence.
-The authors highlight a gap in existing scientific literature regarding a systematic approach to assessing risks related to Industry 4.0 driven business model changes. Their proposed RADi matrix serves as a practical tool for enterprises to identify high-risk areas when planning and implementing digitalization initiatives. The study also suggests that policymakers can use this model to identify risky areas in business model digitalization for national-level support and development programs.
-Discussion Forum Answers
-What do the authors mean by the term ‘Industry 4.0’ - give two examples.
-Based on Kovaitė and Stankevičienė (2019), Industry 4.0 refers to the fourth industrial revolution, characterized by the extensive integration of digital technologies into business models and processes. It builds upon the third industrial revolution (which introduced the internet and decentralization of energy) by encompassing a range of technological drivers that decentralize communication between people and machines. Essentially, it's about creating 'smart' environments where machines, systems, and products communicate and cooperate with each other.
-Two examples of technological drivers that define Industry 4.0, as mentioned in the article, are:
-1.Internet of Things (IoT): This involves interconnected devices, sensors, and machines that collect and exchange data, enabling real-time monitoring and control. For instance, in a smart factory, IoT sensors on machinery can monitor performance, predict maintenance needs, and optimize production flows autonomously.
-2.Big Data: This refers to the massive volume of data generated by interconnected systems, which can be analyzed to gain insights, optimize processes, and make informed decisions. An example would be a retail company using big data analytics to understand customer purchasing patterns and personalize marketing campaigns, or a manufacturing plant analyzing production data to identify bottlenecks and improve efficiency.
-Give two real-world examples of risks that fit into the authors’ categories.
-The authors identify six types of risks associated with Industry 4.0 digitalization: technical, competence, acceptance by staff, acceptance by customers and partners, data privacy and security, and financial risks. Here are two real-world examples fitting these categories:
-1.Data Privacy and Security Risk: A Ransomware Attack on a Smart Factory.
-•Category: Data privacy and security risks.
-•Example: A manufacturing company has implemented Industry 4.0 solutions, including interconnected IoT devices, cloud-based data storage, and automated production lines. A ransomware attack encrypts critical operational data and shuts down the production line, demanding a ransom for data decryption and system restoration. This directly impacts data privacy (sensitive production data and potentially customer information are compromised) and security (systems are breached, and operations are halted), fitting the authors' category of data privacy and security risks.
-2.Technical Risk: Integration Failure in a Smart City Infrastructure.
-•Category: Technical risks.
-•Example: A city implements a smart traffic management system that integrates data from traffic sensors, smart cameras, and public transportation networks to optimize traffic flow. Due to incompatible software protocols or hardware malfunctions between different vendors' systems, the data integration fails, leading to inaccurate traffic predictions, malfunctioning signal lights, and increased congestion. This represents a technical risk, as the failure stems from the inability of diverse technological components to work together seamlessly, leading to operational disruption.
-Find another journal article that either supports or contradicts the points made in the cited study.
-Supporting Article:
-Title: Addressing Industry 4.0 Cybersecurity Challenges Authors: G. Culot, F. Fattori, M. Podrecca, M. Sartor Publication: IEEE Engineering Management Review, Volume: 47, Issue: 3, pp. 79-86, 2019.
-This article strongly supports the points made by Kovaitė and Stankevičienė (2019) regarding the increased cybersecurity risks in Industry 4.0. It emphasizes that the heavy dependence on integrated information systems and technology in Industry 4.0 manufacturing environments creates numerous entry points for malicious actors. The authors highlight the substantial potential damage of cyberattacks in terms of business continuity, theft of confidential information, and reputational harm. They also point out the confusion among C-suite executives and entrepreneurs about how to address these complex cybersecurity issues, echoing Kovaitė and Stankevičienė's observation about the lack of a systematized approach to risk assessment in Industry 4.0.
-Both articles underscore the critical need for an evolving cybersecurity perspective and a better understanding of the risks associated with the digitalization brought by Industry 4.0. While Kovaitė and Stankevičienė focus on a broader range of business model risks, Culot et al. specifically delve into the cybersecurity aspect, providing a more detailed analysis of the threats and the need for improved awareness and strategies, thereby reinforcing the cybersecurity concerns raised in the original study.
-
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-gray-200">
-                        <span class="text-sm text-gray-500">Last updated: November 2024</span>
-                    </div>
-                </div>
-
-                <!-- Unit 3 Reflection -->
-                <div class="reflection-container">
-                    <div class="flex items-center mb-4">
-                        <span class="unit-badge bg-indigo-100 text-indigo-600">3</span>
-                        <h3 class="text-2xl font-bold text-gray-800">Unit 3 Reflection</h3>
-                    </div>
-                    <div class="reflection-content">
-Paste your 500-1000 word reflection for Unit 3 here. Share your insights on threat modeling, analysis techniques, and how these concepts apply to modern security challenges.
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-gray-200">
-                        <span class="text-sm text-gray-500">Last updated: December 2024</span>
-                    </div>
-                </div>
-
-                <!-- Unit 4 Reflection -->
-                <div class="reflection-container">
-                    <div class="flex items-center mb-4">
-                        <span class="unit-badge bg-pink-100 text-pink-600">4</span>
-                        <h3 class="text-2xl font-bold text-gray-800">Unit 4 Reflection</h3>
-                    </div>
-                    <div class="reflection-content">
-Paste your 500-1000 word reflection for Unit 4 here. Reflect on security controls implementation, practical challenges, and lessons learned.
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-gray-200">
-                        <span class="text-sm text-gray-500">Last updated: January 2025</span>
-                    </div>
-                </div>
-
-                <!-- Unit 5 Reflection -->
-                <div class="reflection-container">
-                    <div class="flex items-center mb-4">
-                        <span class="unit-badge bg-green-100 text-green-600">5</span>
-                        <h3 class="text-2xl font-bold text-gray-800">Unit 5 Reflection</h3>
-                    </div>
-                    <div class="reflection-content">
-Paste your 500-1000 word reflection for Unit 5 here. Discuss your understanding of compliance frameworks, governance structures, and regulatory requirements.
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-gray-200">
+                    <div class="mt-6 pt-4 border-t border-gray-300">
                         <span class="text-sm text-gray-500">Last updated: February 2025</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- Unit 6 Reflection -->
+            <!-- UNIT 10 -->
+            <div class="unit-section">
+                <div class="unit-header">
+                    <span class="unit-badge bg-cyan-100 text-cyan-600">10</span>
+                    <h3 class="text-2xl font-bold text-gray-800">Practical Applications and Issues in DR Implementations</h3>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">📚 Artifacts</h4>
+                <div class="tile-grid">
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts/ folder\n2. Copy the artifact tile template below\n3. Paste it above this upload tile\n4. Update title, description, and file path')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions</p>
+                    </div>
+                </div>
+                
                 <div class="reflection-container">
-                    <div class="flex items-center mb-4">
-                        <span class="unit-badge bg-yellow-100 text-yellow-700">6</span>
-                        <h3 class="text-2xl font-bold text-gray-800">Unit 6 Reflection</h3>
-                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">💭 Unit 10 Reflection</h4>
                     <div class="reflection-content">
-Paste your 500-1000 word reflection for Unit 6 here. Share your thoughts on incident response procedures, recovery strategies, and business continuity planning.
+Paste your 500-1000 word reflection here. Discuss practical challenges and solutions in disaster recovery implementations.
+
+Replace this placeholder text with your detailed reflection on Unit 10.
                     </div>
-                    <div class="mt-6 pt-4 border-t border-gray-200">
+                    <div class="mt-6 pt-4 border-t border-gray-300">
+                        <span class="text-sm text-gray-500">Last updated: February 2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 11 -->
+            <div class="unit-section">
+                <div class="unit-header">
+                    <span class="unit-badge bg-violet-100 text-violet-600">11</span>
+                    <h3 class="text-2xl font-bold text-gray-800">Future Trends in Security and Risk Management</h3>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">📚 Artifacts</h4>
+                <div class="tile-grid">
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts/ folder\n2. Copy the artifact tile template below\n3. Paste it above this upload tile\n4. Update title, description, and file path')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-container">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">💭 Unit 11 Reflection</h4>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection here. Explore emerging trends and future directions in security and risk management.
+
+Replace this placeholder text with your detailed reflection on Unit 11.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-300">
+                        <span class="text-sm text-gray-500">Last updated: February 2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 12 -->
+            <div class="unit-section">
+                <div class="unit-header">
+                    <span class="unit-badge bg-fuchsia-100 text-fuchsia-600">12</span>
+                    <h3 class="text-2xl font-bold text-gray-800">The Great Debate: What will be the most influential trend in SRM in the next 5 years?</h3>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">📚 Artifacts</h4>
+                <div class="tile-grid">
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts/ folder\n2. Copy the artifact tile template below\n3. Paste it above this upload tile\n4. Update title, description, and file path')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-container">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">💭 Unit 12 Reflection</h4>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection here. Share your perspective on the most influential trends in SRM and justify your position.
+
+Replace this placeholder text with your detailed reflection on Unit 12.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-300">
                         <span class="text-sm text-gray-500">Last updated: February 2025</span>
                     </div>
                 </div>
@@ -551,7 +399,7 @@ Paste your 500-1000 word reflection for Unit 6 here. Share your thoughts on inci
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
+    <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-6 text-center">
             <h2 class="section-title text-4xl font-bold text-gray-800 mb-4 inline-block">Get In Touch</h2>
             <p class="text-gray-600 mb-12 text-lg max-w-2xl mx-auto">
@@ -622,4 +470,269 @@ Paste your 500-1000 word reflection for Unit 6 here. Share your thoughts on inci
         });
     </script>
 </body>
-</html>
+</html>lg font-semibold text-gray-700 mb-3">📚 Artifacts</h4>
+                <div class="tile-grid">
+                    <!-- Upload Tile -->
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts/ folder\n2. Copy the artifact tile template below\n3. Paste it above this upload tile\n4. Update title, description, and file path')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-container">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">💭 Unit 1 Reflection</h4>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection here. Share your insights on the introduction to security and risk management, key concepts learned, and how they relate to practical applications.
+
+Replace this placeholder text with your detailed reflection on Unit 1.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-300">
+                        <span class="text-sm text-gray-500">Last updated: October 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 2 -->
+            <div class="unit-section">
+                <div class="unit-header">
+                    <span class="unit-badge bg-blue-100 text-blue-600">2</span>
+                    <h3 class="text-2xl font-bold text-gray-800">Users, Assessments and the Risk Management Process</h3>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">📚 Artifacts</h4>
+                <div class="tile-grid">
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts/ folder\n2. Copy the artifact tile template below\n3. Paste it above this upload tile\n4. Update title, description, and file path')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-container">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">💭 Unit 2 Reflection</h4>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection here. Discuss your understanding of user assessments and the risk management process.
+
+Replace this placeholder text with your detailed reflection on Unit 2.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-300">
+                        <span class="text-sm text-gray-500">Last updated: October 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 3 -->
+            <div class="unit-section">
+                <div class="unit-header">
+                    <span class="unit-badge bg-indigo-100 text-indigo-600">3</span>
+                    <h3 class="text-2xl font-bold text-gray-800">Introduction to Threat Modelling and Management</h3>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">📚 Artifacts</h4>
+                <div class="tile-grid">
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts/ folder\n2. Copy the artifact tile template below\n3. Paste it above this upload tile\n4. Update title, description, and file path')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-container">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">💭 Unit 3 Reflection</h4>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection here. Share your insights on threat modelling fundamentals and management approaches.
+
+Replace this placeholder text with your detailed reflection on Unit 3.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-300">
+                        <span class="text-sm text-gray-500">Last updated: November 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 4 -->
+            <div class="unit-section">
+                <div class="unit-header">
+                    <span class="unit-badge bg-pink-100 text-pink-600">4</span>
+                    <h3 class="text-2xl font-bold text-gray-800">Application of Threat Modelling and Management Techniques</h3>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">📚 Artifacts</h4>
+                <div class="tile-grid">
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts/ folder\n2. Copy the artifact tile template below\n3. Paste it above this upload tile\n4. Update title, description, and file path')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-container">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">💭 Unit 4 Reflection</h4>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection here. Discuss practical applications of threat modelling techniques you've learned.
+
+Replace this placeholder text with your detailed reflection on Unit 4.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-300">
+                        <span class="text-sm text-gray-500">Last updated: November 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 5 -->
+            <div class="unit-section">
+                <div class="unit-header">
+                    <span class="unit-badge bg-green-100 text-green-600">5</span>
+                    <h3 class="text-2xl font-bold text-gray-800">An Introduction to Security and Risk Standards in Industry and the Enterprise</h3>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">📚 Artifacts</h4>
+                <div class="tile-grid">
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts/ folder\n2. Copy the artifact tile template below\n3. Paste it above this upload tile\n4. Update title, description, and file path')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-container">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">💭 Unit 5 Reflection</h4>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection here. Share your understanding of security and risk standards in industry contexts.
+
+Replace this placeholder text with your detailed reflection on Unit 5.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-300">
+                        <span class="text-sm text-gray-500">Last updated: December 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 6 -->
+            <div class="unit-section">
+                <div class="unit-header">
+                    <span class="unit-badge bg-yellow-100 text-yellow-700">6</span>
+                    <h3 class="text-2xl font-bold text-gray-800">The Practical Implications of Security and Risk Standards</h3>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">📚 Artifacts</h4>
+                <div class="tile-grid">
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts/ folder\n2. Copy the artifact tile template below\n3. Paste it above this upload tile\n4. Update title, description, and file path')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-container">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">💭 Unit 6 Reflection</h4>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection here. Discuss practical implications of implementing security and risk standards.
+
+Replace this placeholder text with your detailed reflection on Unit 6.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-300">
+                        <span class="text-sm text-gray-500">Last updated: December 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 7 -->
+            <div class="unit-section">
+                <div class="unit-header">
+                    <span class="unit-badge bg-red-100 text-red-600">7</span>
+                    <h3 class="text-2xl font-bold text-gray-800">An Introduction to the Concepts of Quantitative Risk Modelling</h3>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">📚 Artifacts</h4>
+                <div class="tile-grid">
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts/ folder\n2. Copy the artifact tile template below\n3. Paste it above this upload tile\n4. Update title, description, and file path')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-container">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">💭 Unit 7 Reflection</h4>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection here. Share insights on quantitative risk modelling concepts and methodologies.
+
+Replace this placeholder text with your detailed reflection on Unit 7.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-300">
+                        <span class="text-sm text-gray-500">Last updated: January 2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 8 -->
+            <div class="unit-section">
+                <div class="unit-header">
+                    <span class="unit-badge bg-orange-100 text-orange-600">8</span>
+                    <h3 class="text-2xl font-bold text-gray-800">Implementing Quantitative Risk Models</h3>
+                </div>
+                
+                <h4 class="text-lg font-semibold text-gray-700 mb-3">📚 Artifacts</h4>
+                <div class="tile-grid">
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts/ folder\n2. Copy the artifact tile template below\n3. Paste it above this upload tile\n4. Update title, description, and file path')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-container">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">💭 Unit 8 Reflection</h4>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection here. Discuss practical implementation of quantitative risk models.
+
+Replace this placeholder text with your detailed reflection on Unit 8.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-300">
+                        <span class="text-sm text-gray-500">Last updated: January 2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 9 -->
+            <div class="unit-section">
+                <div class="unit-header">
+                    <span class="unit-badge bg-teal-100 text-teal-600">9</span>
+                    <h3 class="text-2xl font-bold text-gray-800">Risk, Business Continuity and Disaster Recovery</h3>
+                </div>
+                
+                <h4 class="text-
