@@ -66,6 +66,10 @@
             background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
         }
         
+        .upload-icon {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+        }
+        
         .section-title {
             position: relative;
             display: inline-block;
@@ -97,39 +101,62 @@
             font-weight: 500;
         }
         
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .download-btn:hover {
-            transform: translateX(4px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-        }
-        
         .tile-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 24px;
         }
         
-        .placeholder-tile {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border: 2px dashed #667eea;
+        .upload-tile {
+            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+            border: 2px dashed #48bb78;
             min-height: 280px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            opacity: 0.6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-tile:hover {
+            transform: translateY(-4px);
+            border-color: #38a169;
+            box-shadow: 0 12px 24px rgba(72, 187, 120, 0.2);
+        }
+        
+        .reflection-container {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            border-left: 4px solid #667eea;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .reflection-container:hover {
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.15);
+        }
+        
+        .reflection-content {
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 1rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .unit-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-right: 16px;
         }
         
         .smooth-scroll {
@@ -156,7 +183,6 @@
                     </svg>
                 </button>
             </div>
-            <!-- Mobile menu -->
             <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-2">
                 <a href="#home" class="block text-gray-700 py-2">Home</a>
                 <a href="#about" class="block text-gray-700 py-2">About</a>
@@ -224,13 +250,13 @@
     <section id="artifacts" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="section-title text-4xl font-bold text-gray-800 mb-4">Artifacts</h2>
-            <p class="text-gray-600 mb-12 text-lg">Key deliverables and assignments organized by module</p>
+            <p class="text-gray-600 mb-12 text-lg">Course deliverables and assignments organized by unit</p>
             
-            <!-- Module 1 -->
+            <!-- UNIT 1 -->
             <div class="mb-16">
                 <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                    <span class="bg-purple-100 text-purple-600 rounded-full w-10 h-10 flex items-center justify-center mr-3 font-bold">1</span>
-                    Security Frameworks & Standards
+                    <span class="unit-badge bg-purple-100 text-purple-600">1</span>
+                    Unit 1: Introduction to Security & Risk Management
                 </h3>
                 <div class="tile-grid">
                     <!-- Example PDF Artifact -->
@@ -245,11 +271,11 @@
                             <span class="badge bg-blue-100 text-blue-600">Essay</span>
                             <span class="badge bg-green-100 text-green-600 ml-2">Week 2</span>
                         </div>
-                        <h4 class="text-xl font-bold text-gray-800 mb-2">ISO 27001 Analysis</h4>
-                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Comprehensive analysis of the ISO 27001 framework and its application in modern organizations.</p>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Security Frameworks Analysis</h4>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Comprehensive analysis of ISO 27001 framework and its application in modern organizations.</p>
                         <div class="flex justify-between items-center pt-4 border-t border-gray-100">
                             <span class="text-sm text-gray-500">Oct 15, 2024</span>
-                            <a href="./artifacts/iso27001-analysis.pdf" class="text-purple-600 hover:text-purple-700 font-semibold text-sm flex items-center">
+                            <a href="./artifacts/unit1-frameworks.pdf" class="text-purple-600 hover:text-purple-700 font-semibold text-sm flex items-center">
                                 Download
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
@@ -258,6 +284,26 @@
                         </div>
                     </div>
 
+                    <!-- Upload Tile for Unit 1 -->
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts folder\n2. Copy the artifact tile template\n3. Edit index.html and add your details')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions to add your Unit 1 evidence</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT 2 -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <span class="unit-badge bg-blue-100 text-blue-600">2</span>
+                    Unit 2: Risk Assessment Fundamentals
+                </h3>
+                <div class="tile-grid">
                     <!-- Example Word Artifact -->
                     <div class="artifact-tile bg-white rounded-xl p-6 shadow-lg">
                         <div class="file-icon word-icon">
@@ -267,14 +313,14 @@
                             </svg>
                         </div>
                         <div class="mb-3">
-                            <span class="badge bg-orange-100 text-orange-600">Report</span>
+                            <span class="badge bg-red-100 text-red-600">Report</span>
                             <span class="badge bg-green-100 text-green-600 ml-2">Week 4</span>
                         </div>
-                        <h4 class="text-xl font-bold text-gray-800 mb-2">NIST Framework Overview</h4>
-                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Detailed report on the NIST Cybersecurity Framework and its five core functions.</p>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Risk Assessment Report</h4>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Detailed risk assessment for a fictional financial institution with mitigation strategies.</p>
                         <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-                            <span class="text-sm text-gray-500">Oct 28, 2024</span>
-                            <a href="./artifacts/nist-framework.docx" class="text-purple-600 hover:text-purple-700 font-semibold text-sm flex items-center">
+                            <span class="text-sm text-gray-500">Nov 10, 2024</span>
+                            <a href="./artifacts/unit2-risk-assessment.docx" class="text-purple-600 hover:text-purple-700 font-semibold text-sm flex items-center">
                                 Download
                                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
@@ -283,123 +329,95 @@
                         </div>
                     </div>
 
-                    <!-- Placeholder Tile -->
-                    <div class="artifact-tile placeholder-tile rounded-xl">
-                        <svg class="w-16 h-16 text-purple-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                        </svg>
-                        <p class="text-gray-600 font-semibold">Add Your Artifact</p>
-                        <p class="text-gray-500 text-sm mt-2 px-6 text-center">Copy this tile template and add your content</p>
-                    </div>
-
-                    <!-- Additional Placeholder -->
-                    <div class="artifact-tile placeholder-tile rounded-xl">
-                        <svg class="w-16 h-16 text-purple-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                        </svg>
-                        <p class="text-gray-600 font-semibold">Add Your Artifact</p>
-                        <p class="text-gray-500 text-sm mt-2 px-6 text-center">Copy this tile template and add your content</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Module 2 -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                    <span class="bg-purple-100 text-purple-600 rounded-full w-10 h-10 flex items-center justify-center mr-3 font-bold">2</span>
-                    Risk Assessment & Management
-                </h3>
-                <div class="tile-grid">
-                    <!-- PDF Example -->
-                    <div class="artifact-tile bg-white rounded-xl p-6 shadow-lg">
-                        <div class="file-icon pdf-icon">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"/>
-                                <text x="50%" y="65%" text-anchor="middle" fill="white" font-size="6" font-weight="bold">PDF</text>
+                    <!-- Upload Tile for Unit 2 -->
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts folder\n2. Copy the artifact tile template\n3. Edit index.html and add your details')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
                             </svg>
                         </div>
-                        <div class="mb-3">
-                            <span class="badge bg-red-100 text-red-600">Case Study</span>
-                            <span class="badge bg-green-100 text-green-600 ml-2">Week 7</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-800 mb-2">Enterprise Risk Assessment</h4>
-                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">Comprehensive risk assessment for a fictional financial institution with mitigation strategies.</p>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-                            <span class="text-sm text-gray-500">Nov 18, 2024</span>
-                            <a href="./artifacts/risk-assessment.pdf" class="text-purple-600 hover:text-purple-700 font-semibold text-sm flex items-center">
-                                Download
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Placeholder Tiles -->
-                    <div class="artifact-tile placeholder-tile rounded-xl">
-                        <svg class="w-16 h-16 text-purple-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                        </svg>
-                        <p class="text-gray-600 font-semibold">Add Your Artifact</p>
-                        <p class="text-gray-500 text-sm mt-2 px-6 text-center">Copy this tile template and add your content</p>
-                    </div>
-
-                    <div class="artifact-tile placeholder-tile rounded-xl">
-                        <svg class="w-16 h-16 text-purple-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                        </svg>
-                        <p class="text-gray-600 font-semibold">Add Your Artifact</p>
-                        <p class="text-gray-500 text-sm mt-2 px-6 text-center">Copy this tile template and add your content</p>
-                    </div>
-
-                    <div class="artifact-tile placeholder-tile rounded-xl">
-                        <svg class="w-16 h-16 text-purple-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                        </svg>
-                        <p class="text-gray-600 font-semibold">Add Your Artifact</p>
-                        <p class="text-gray-500 text-sm mt-2 px-6 text-center">Copy this tile template and add your content</p>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions to add your Unit 2 evidence</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Module 3 -->
-            <div>
+            <!-- UNIT 3 -->
+            <div class="mb-16">
                 <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
-                    <span class="bg-purple-100 text-purple-600 rounded-full w-10 h-10 flex items-center justify-center mr-3 font-bold">3</span>
-                    Compliance & Governance
+                    <span class="unit-badge bg-indigo-100 text-indigo-600">3</span>
+                    Unit 3: Threat Modeling & Analysis
                 </h3>
                 <div class="tile-grid">
-                    <!-- Placeholder Tiles -->
-                    <div class="artifact-tile placeholder-tile rounded-xl">
-                        <svg class="w-16 h-16 text-purple-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                        </svg>
-                        <p class="text-gray-600 font-semibold">Add Your Artifact</p>
-                        <p class="text-gray-500 text-sm mt-2 px-6 text-center">Copy this tile template and add your content</p>
+                    <!-- Upload Tile for Unit 3 -->
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts folder\n2. Copy the artifact tile template\n3. Edit index.html and add your details')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions to add your Unit 3 evidence</p>
                     </div>
+                </div>
+            </div>
 
-                    <div class="artifact-tile placeholder-tile rounded-xl">
-                        <svg class="w-16 h-16 text-purple-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                        </svg>
-                        <p class="text-gray-600 font-semibold">Add Your Artifact</p>
-                        <p class="text-gray-500 text-sm mt-2 px-6 text-center">Copy this tile template and add your content</p>
+            <!-- UNIT 4 -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <span class="unit-badge bg-pink-100 text-pink-600">4</span>
+                    Unit 4: Security Controls & Implementation
+                </h3>
+                <div class="tile-grid">
+                    <!-- Upload Tile for Unit 4 -->
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts folder\n2. Copy the artifact tile template\n3. Edit index.html and add your details')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions to add your Unit 4 evidence</p>
                     </div>
+                </div>
+            </div>
 
-                    <div class="artifact-tile placeholder-tile rounded-xl">
-                        <svg class="w-16 h-16 text-purple-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                        </svg>
-                        <p class="text-gray-600 font-semibold">Add Your Artifact</p>
-                        <p class="text-gray-500 text-sm mt-2 px-6 text-center">Copy this tile template and add your content</p>
+            <!-- UNIT 5 -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <span class="unit-badge bg-green-100 text-green-600">5</span>
+                    Unit 5: Compliance & Governance
+                </h3>
+                <div class="tile-grid">
+                    <!-- Upload Tile for Unit 5 -->
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts folder\n2. Copy the artifact tile template\n3. Edit index.html and add your details')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions to add your Unit 5 evidence</p>
                     </div>
+                </div>
+            </div>
 
-                    <div class="artifact-tile placeholder-tile rounded-xl">
-                        <svg class="w-16 h-16 text-purple-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                        </svg>
-                        <p class="text-gray-600 font-semibold">Add Your Artifact</p>
-                        <p class="text-gray-500 text-sm mt-2 px-6 text-center">Copy this tile template and add your content</p>
+            <!-- UNIT 6 -->
+            <div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <span class="unit-badge bg-yellow-100 text-yellow-700">6</span>
+                    Unit 6: Incident Response & Recovery
+                </h3>
+                <div class="tile-grid">
+                    <!-- Upload Tile for Unit 6 -->
+                    <div class="artifact-tile upload-tile rounded-xl" onclick="alert('To add an artifact:\n1. Upload your file to the artifacts folder\n2. Copy the artifact tile template\n3. Edit index.html and add your details')">
+                        <div class="file-icon upload-icon">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-bold text-lg mb-2">Upload Artifact</p>
+                        <p class="text-gray-600 text-sm px-6 text-center">Click for instructions to add your Unit 6 evidence</p>
                     </div>
                 </div>
             </div>
@@ -410,31 +428,102 @@
     <section id="reflections" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="section-title text-4xl font-bold text-gray-800 mb-4">Reflections</h2>
-            <p class="text-gray-600 mb-12 text-lg">Personal insights and learning journey</p>
+            <p class="text-gray-600 mb-12 text-lg">Personal insights and learning journey (500-1000 words per unit)</p>
             
             <div class="max-w-4xl mx-auto space-y-8">
-                <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-8 border-l-4 border-purple-600">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Module 1 Reflection</h3>
-                    <p class="text-gray-600 leading-relaxed mb-3">
-                        Learning about security frameworks opened my eyes to the structured approach organizations must take to protect their assets. The comparison between ISO 27001 and NIST CSF was particularly enlightening, as it showed how different frameworks can complement each other rather than compete.
-                    </p>
-                    <p class="text-sm text-gray-500">October 2024</p>
+                <!-- Unit 1 Reflection -->
+                <div class="reflection-container">
+                    <div class="flex items-center mb-4">
+                        <span class="unit-badge bg-purple-100 text-purple-600">1</span>
+                        <h3 class="text-2xl font-bold text-gray-800">Unit 1 Reflection</h3>
+                    </div>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection for Unit 1 here. You can write about your learning experience, key takeaways, challenges faced, and how the knowledge gained relates to real-world scenarios.
+
+This container will automatically expand to fit your content. Simply replace this placeholder text with your actual reflection.
+
+Tips for writing reflections:
+- Start with what you learned
+- Discuss challenges and how you overcame them
+- Connect theory to practice
+- Reflect on personal growth
+- Consider future applications
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-200">
+                        <span class="text-sm text-gray-500">Last updated: October 2024</span>
+                    </div>
                 </div>
 
-                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 border-l-4 border-blue-600">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Module 2 Reflection</h3>
-                    <p class="text-gray-600 leading-relaxed mb-3">
-                        Risk assessment proved to be more complex than I initially thought. The challenge wasn't just identifying risks, but properly evaluating their likelihood and impact. The threat modeling exercise using STRIDE methodology was particularly valuable in understanding how attackers think.
-                    </p>
-                    <p class="text-sm text-gray-500">December 2024</p>
+                <!-- Unit 2 Reflection -->
+                <div class="reflection-container">
+                    <div class="flex items-center mb-4">
+                        <span class="unit-badge bg-blue-100 text-blue-600">2</span>
+                        <h3 class="text-2xl font-bold text-gray-800">Unit 2 Reflection</h3>
+                    </div>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection for Unit 2 here. Discuss your understanding of risk assessment fundamentals, methodologies you explored, and practical applications.
+
+Replace this text with your detailed reflection on Unit 2 learning outcomes and experiences.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-200">
+                        <span class="text-sm text-gray-500">Last updated: November 2024</span>
+                    </div>
                 </div>
 
-                <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-8 border-l-4 border-indigo-600">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Overall Course Reflection</h3>
-                    <p class="text-gray-600 leading-relaxed mb-3">
-                        This course has fundamentally changed how I view organizational security. I now understand that effective security management requires balancing technical controls with business objectives, regulatory compliance, and human factors. The practical exercises and case studies helped bridge the gap between theory and real-world application.
-                    </p>
-                    <p class="text-sm text-gray-500">February 2025</p>
+                <!-- Unit 3 Reflection -->
+                <div class="reflection-container">
+                    <div class="flex items-center mb-4">
+                        <span class="unit-badge bg-indigo-100 text-indigo-600">3</span>
+                        <h3 class="text-2xl font-bold text-gray-800">Unit 3 Reflection</h3>
+                    </div>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection for Unit 3 here. Share your insights on threat modeling, analysis techniques, and how these concepts apply to modern security challenges.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-200">
+                        <span class="text-sm text-gray-500">Last updated: December 2024</span>
+                    </div>
+                </div>
+
+                <!-- Unit 4 Reflection -->
+                <div class="reflection-container">
+                    <div class="flex items-center mb-4">
+                        <span class="unit-badge bg-pink-100 text-pink-600">4</span>
+                        <h3 class="text-2xl font-bold text-gray-800">Unit 4 Reflection</h3>
+                    </div>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection for Unit 4 here. Reflect on security controls implementation, practical challenges, and lessons learned.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-200">
+                        <span class="text-sm text-gray-500">Last updated: January 2025</span>
+                    </div>
+                </div>
+
+                <!-- Unit 5 Reflection -->
+                <div class="reflection-container">
+                    <div class="flex items-center mb-4">
+                        <span class="unit-badge bg-green-100 text-green-600">5</span>
+                        <h3 class="text-2xl font-bold text-gray-800">Unit 5 Reflection</h3>
+                    </div>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection for Unit 5 here. Discuss your understanding of compliance frameworks, governance structures, and regulatory requirements.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-200">
+                        <span class="text-sm text-gray-500">Last updated: February 2025</span>
+                    </div>
+                </div>
+
+                <!-- Unit 6 Reflection -->
+                <div class="reflection-container">
+                    <div class="flex items-center mb-4">
+                        <span class="unit-badge bg-yellow-100 text-yellow-700">6</span>
+                        <h3 class="text-2xl font-bold text-gray-800">Unit 6 Reflection</h3>
+                    </div>
+                    <div class="reflection-content">
+Paste your 500-1000 word reflection for Unit 6 here. Share your thoughts on incident response procedures, recovery strategies, and business continuity planning.
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-200">
+                        <span class="text-sm text-gray-500">Last updated: February 2025</span>
+                    </div>
                 </div>
             </div>
         </div>
