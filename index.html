@@ -595,41 +595,92 @@ Sutton, D. (2021) Information risk management: A practitioner's guide. 2nd edn. 
                 <div class="unit-card">
                     <div class="unit-number">Unit 5</div>
                     <h3 class="unit-title">Security and Risk Standards</h3>
-                    <p class="unit-content">Examining industry standards including ISO 27001, NIST, and other regulatory frameworks.</p>
+                    <p class="unit-content">Q: How do I choose the right security framework for my organization?
+A: Choosing the right security framework depends on several factors, including your organization's industry, size, regulatory obligations, and risk appetite. It's often beneficial to start with a widely recognized framework like NIST Cybersecurity Framework (CSF) or ISO/IEC 27001, as they provide a comprehensive foundation. Then, layer on industry-specific regulations and standards (e.g., HIPAA for healthcare, PCI DSS for finance, ISA/IEC 62443 for manufacturing) to address unique challenges and compliance requirements. Consider conducting a thorough risk assessment to identify your most critical assets and threats, which can guide your framework selection.
+Q: What is the difference between a security framework and a regulation?
+A: A security framework provides a structured set of guidelines, best practices, and processes to help organizations manage and reduce cybersecurity risks. Frameworks like NIST CSF or ISO/IEC 27001 are voluntary and offer flexibility in implementation. They guide how an organization can achieve a secure posture. A regulation, on the other hand, is a legal requirement imposed by a government or regulatory body. Regulations (e.g., HIPAA, GDPR, PCI DSS) are mandatory and specify what an organization must do to comply with the law. While frameworks provide guidance, regulations enforce specific rules, and non-compliance can lead to legal penalties or fines. Often, organizations use frameworks to help them achieve compliance with various regulations.
+</p>
                     <span class="artifact-badge">📚 Standards Comparison</span>
-                    <span class="artifact-badge">📊 Compliance Matrix</span>
+                    <span class="artifact-badge">📊 Module Wiki</span>
                 </div>
 
                 <div class="unit-card">
                     <div class="unit-number">Unit 6</div>
                     <h3 class="unit-title">Practical Implications of Standards</h3>
-                    <p class="unit-content">Applying security standards to organizational contexts and understanding implementation challenges.</p>
-                    <span class="artifact-badge">📄 Status Document</span>
-                    <span class="artifact-badge">🔍 Gap Analysis</span>
+                    <p class="unit-content">Academic Summary: Data Protection and Cybersecurity Compliance Framework
+This comprehensive analysis examines critical data protection and cybersecurity standards applicable to organizations operating in complex regulatory environments. The report systematically evaluates the General Data Protection Regulation (GDPR), Payment Card Industry Data Security Standard (PCI-DSS), Health Insurance Portability and Accountability Act (HIPAA), HMG Cybersecurity Guidelines, and information risk control frameworks.
+GDPR establishes comprehensive requirements for organizations processing personal data of EU/EEA residents, emphasizing principles of lawfulness, transparency, data minimization, and accountability (ICO, 2020). Compliance evaluation necessitates data mapping, lawful basis assessment, privacy notice reviews, and implementation of data subject rights mechanisms. The regulation mandates robust security measures, breach notification procedures, and Data Protection Officer appointment where required.
+PCI-DSS applies to all entities handling cardholder data, structured around twelve core requirements encompassing network security, cardholder data protection, vulnerability management, access control, monitoring, and information security policies (PCI Security Standards Council, 2020). Compliance assessment employs Self-Assessment Questionnaires, Qualified Security Assessor audits, and Approved Scanning Vendor scans.
+HIPAA governs protected health information through three principal rules: Privacy, Security, and Breach Notification (HHS.gov, 2020a; HHS.gov, 2020b). The framework requires comprehensive administrative, physical, and technical safeguards, risk assessments, Business Associate Agreements, and incident response capabilities.
+HMG Cybersecurity Guidelines, particularly the '10 Steps to Cyber Security' and Cyber Essentials scheme, provide foundational cybersecurity best practices for UK organizations, addressing risk management, secure configuration, network security, and incident management.
+Information risk controls, as conceptualized by O'Reilly Media (2020), establish a hierarchical framework encompassing strategic, tactical, and operational controls, emphasizing defense-in-depth approaches and continuous risk assessment processes.
+The analysis demonstrates significant synergy across frameworks, advocating for integrated compliance approaches that enhance organizational resilience while meeting regulatory obligations.
+
+References
+HHS.gov (2020a) Summary of the HIPAA Privacy Rule. Available at: https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html (Accessed: 3 October 2025).
+HHS.gov (2020b) Summary of the HIPAA Security Rule. Available at: https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html (Accessed: 3 October 2025).
+ICO (2020) Guide to the General Data Protection Regulation (GDPR). Available at: https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/ (Accessed: 3 October 2025).
+O'Reilly Media (2020) Information risk management. 2nd edn. Available at: https://www.oreilly.com/library/view/information-risk-management/9781780175751/ (Accessed: 3 October 2025).
+PCI Security Standards Council (2020) Official PCI Security Standards Council Site - PCI Security Standards Overview. Available at: https://www.pcisecuritystandards.org/pci_security/ (Accessed: 3 October 2025).</p>
+                    <span class="artifact-badge">📄 Seminar 6 Activity</span>
+                   
                 </div>
 
                 <div class="unit-card">
                     <div class="unit-number">Unit 7</div>
                     <h3 class="unit-title">Quantitative Risk Modelling Concepts</h3>
-                    <p class="unit-content">Introduction to quantitative risk analysis, statistical methods, and probability theory in risk assessment.</p>
-                    <span class="artifact-badge">📈 Risk Calculations</span>
-                    <span class="artifact-badge">💡 Forum Discussion</span>
+                    <p class="unit-content">Spring et al. (2021) criticise CVSS on four fronts. First, it performs arithmetic over largely ordinal categories, creating a false sense of precision and encouraging over interpretation of a single number (see also Spring et al., 2018). Second, CVSS is routinely misused for risk prioritisation even though it was designed to express technical severity, not stakeholder actions. Third, because it does not directly model the likelihood of exploitation or local mission/safety impact, it correlates weakly with real world harm. Fourth, inconsistent scoring and opaque mappings to labels (e.g., “High”) reduce reliability across organisations. I broadly agree. Empirical studies show attacker focus and exploit availability—rather than CVSS severity—drive real exploitation (Allodi & Massacci, 2014); scorer and expert disagreement further undermines consistency (Bolger et al., 2015). Research demonstrates that adding exploit likelihood signals markedly improves remediation outcomes (Romanosky et al., 2020), and independent critiques highlight systemic problems in relying on CVSS alone (Howland, 2023). A fair counterpoint is that the CVSS v3 base score equation broadly matches expert perceptions of technical severity (Mell et al., 2022); this supports CVSS as a descriptive severity measure, not as a stand alone risk metric.
+Of the alternatives discussed by Spring et al., SSVC (Stakeholder Specific Vulnerability Categorization) should replace CVSS for prioritisation. SSVC provides transparent, stakeholder specific decision trees whose outputs are concrete actions (e.g., defer, schedule, out of band, immediate), integrates context such as exploitation status and system exposure, and avoids invalid ordinal arithmetic (Spring et al., 2021). Critically, SSVC can ingest probabilistic exploit likelihood models such as EPSS (Jacobs et al., 2021) and curated “known exploited” feeds, aligning triage with empirical predictors of harm (Romanosky et al., 2020). In practice, the most defensible approach is to retain CVSS for communicating technical severity, but replace CVSS driven prioritisation with SSVC operationalised with EPSS and threat intelligence.
+List of References
+Allodi, L. and Massacci, F. (2014) 'Comparing vulnerability severity and exploits using case-control studies', Proceedings of ACM CCS, pp. 145-156. Available at: https://doi.org/10.1145/2660267.2660363 (Accessed: 05/09/2025).
+Bolger, F., Dare, T., Andras, P. and Phillips, C. (2015) 'An expert-based investigation of CVSS', Computers & Security, 55, pp. 100-118. Available at: https://doi.org/10.1016/j.cose.2015.08.007 (Accessed: 05/09/2025).
+Howland, H. (2023) 'CVSS: Ubiquitous and broken', Digital Threats: Research and Practice, 4(1), article 7. Available at: https://doi.org/10.1145/3491263 (Accessed: 05/09/2025).
+Jacobs, J., Romanosky, S., Edwards, B., Roytman, M. and Adjerid, I. (2021) 'Exploit prediction scoring system (EPSS)', Digital Threats: Research and Practice, 2(3), article 16. Available at: https://doi.org/10.1145/3436242 (Accessed: 05/09/2025).
+Mell, P., Hu, V. and Lippmann, R. (2022) Measuring the CVSS v3 base score equation, NIST IR 8409. Gaithersburg, MD: National Institute of Standards and Technology. Available at: https://doi.org/10.6028/NIST.IR.8409 (Accessed: 05/09/2025).
+Romanosky, S., Edwards, B., Kuehn, A., Roytman, M., Phillips, C. and Jacobs, J. (2020) 'Improving vulnerability remediation through better exploit prediction', Cybersecurity, 6(1), tyaa015. Available at: https://doi.org/10.1093/cybsec/tyaa015 (Accessed: 05/09/2025).
+Spring, J.M., Hatleback, E., Manion, A., Shick, D. and Householder, A. (2018) Towards improving CVSS. Pittsburgh: Carnegie Mellon University Software Engineering Institute. Available at: https://resources.sei.cmu.edu/library/asset-view.cfm?assetid=538372 (Accessed: 05/09/2025).
+Spring, J.M., Hatleback, E., Householder, A., Manion, A. and Shick, D. (2021) Prioritizing vulnerability response: SSVC v2.0. Pittsburgh: Carnegie Mellon University Software Engineering Institute. Available at: https://www.sei.cmu.edu/library/prioritizing-vulnerability-response-a-stakeholder-specific-vulnerability-categorization-version-20/ (Accessed: 05/09/2025).
+</p>
+                    <span class="artifact-badge">💡 Forum Discussion 2</span>
                 </div>
 
                 <div class="unit-card">
                     <div class="unit-number">Unit 8</div>
                     <h3 class="unit-title">Implementing Quantitative Risk Models</h3>
-                    <p class="unit-content">Building and validating quantitative risk models using tools and programming techniques.</p>
-                    <span class="artifact-badge">💻 Python Script</span>
-                    <span class="artifact-badge">📊 Monte Carlo Simulation</span>
+                    <p class="unit-content">Academic Summary: Quantitative Risk Modelling of Social Engineering Threats
+This workshop analysis examines the quantitative modelling of Social Engineering Threats (SETs), focusing primarily on Aijaz and Nazir's (2024) methodological framework for evaluating attack probabilities. The study addresses fundamental challenges in modelling SETs, which arise from their reliance on exploiting human psychological vulnerabilities rather than technical weaknesses (Aijaz and Nazir, 2024).
+The primary challenge lies in quantifying inherently qualitative human behaviour. Traditional security models inadequately capture the dynamic, adaptive nature of social engineering attacks, which employ multiple persuasion principles and communication modalities across various stages (Aijaz and Nazir, 2024; Wang, Zhu and Sun, 2021). Data scarcity regarding specific persuasion tactics and their effectiveness further complicates robust model development (Mouton, Leenen and Venter, 2016).
+Aijaz and Nazir (2024) propose an integrated methodology employing Attack Tree Models and Markov Chain Models to quantify Attack Occurrence Probability (AOP) and Attack Success Probability (ASP). The Attack Tree Model decomposes complex SETs into atomic components—modalities (email, voice, face-to-face) and persuasion principles (authority, reciprocity, commitment)—enabling systematic AOP calculation through hierarchical probability aggregation (Aijaz and Nazir, 2024). Conversely, the Markov Chain Model captures attack progression dynamics through state transitions (Disconnect, Connect, Persuade, Success), computing ASP based on effectiveness probabilities of employed techniques (Aijaz and Nazir, 2024).
+These findings support evidence-based policy framework development through data-driven risk prioritization, tailored security awareness training, proactive defense strategies, and informed technology investment decisions (Aijaz and Nazir, 2024). The methodology provides measurable metrics for benchmarking organizational security posture and evaluating countermeasure effectiveness, transforming social engineering defence from reactive to proactive approaches (Ye et al., 2020).
+The systematic analysis of persuasion principles—authority, reciprocity, commitment, scarcity, liking, and consensus—reveals psychological mechanisms attackers exploit (Cialdini, 2009; Ferreira, Coventry and Lenzini, 2015). Combined with modality analysis, this framework enables organizations to develop targeted countermeasures addressing specific vulnerabilities within their threat landscape.
+
+References
+Aijaz, M. and Nazir, M. (2024) 'Modelling and analysis of social engineering threats using the attack tree and the Markov model', International Journal of Information Technology, 16(2), pp. 1231–1238. Available at: https://doi.org/10.1007/s41870-023-01540-z.
+Cialdini, R.B. (2009) Influence: Science and practice. 5th edn. Boston: Pearson Education.
+Ferreira, A., Coventry, L. and Lenzini, G. (2015) 'Principles of persuasion in social engineering and their use in phishing', in International Conference on Human Aspects of Information Security, Privacy, and Trust. Cham: Springer International Publishing, pp. 43–54. Available at: https://doi.org/10.1007/978-3-319-20376-8_4.
+Mouton, F., Leenen, L. and Venter, H.S. (2016) 'Social engineering attack examples, templates and scenarios', Computers & Security, 59, pp. 186–209. Available at: https://doi.org/10.1016/j.cose.2016.03.004.
+Wang, Z., Zhu, H. and Sun, L. (2021) 'Social engineering in cybersecurity: effect mechanisms, human vulnerabilities and attack methods', IEEE Access, 9, pp. 11895–11910. Available at: https://doi.org/10.1109/ACCESS.2021.3051633.
+Ye, Z., Yin, M., Tang, L. and Xu, H. (2020) 'A risk analysis framework for social engineering attack based on user profiling', Journal of Organizational and End User Computing, 32(3), pp. 37–49. Available at: https://doi.org/10.4018/JOEUC.2020070104.</p>
+                    <span class="artifact-badge">📊 Seminar Note Summary</span>
                 </div>
 
                 <div class="unit-card">
                     <div class="unit-number">Unit 9</div>
                     <h3 class="unit-title">Business Continuity & Disaster Recovery</h3>
-                    <p class="unit-content">Developing BC/DR strategies, understanding RTO/RPO, and creating resilience frameworks.</p>
-                    <span class="artifact-badge">📋 BCP Template</span>
-                    <span class="artifact-badge">🔄 Recovery Plan</span>
+                    <p class="unit-content">The discussion has revealed a nuanced consensus regarding CVSS limitations and the potential of SSVC as an alternative vulnerability prioritisation framework. All contributors acknowledge CVSS's fundamental weaknesses: its inappropriate arithmetic over ordinal categories, misalignment between design intent (technical severity) and practical application (risk prioritisation), and poor correlation with real-world exploitation patterns (Spring et al., 2021; Howland, 2023). The empirical evidence supporting these criticisms is compelling, particularly regarding attacker behaviour being driven by exploit availability rather than CVSS severity scores (Allodi and Massacci, 2014).
+SSVC emerges as a theoretically superior alternative, offering stakeholder-specific decision trees that produce actionable outcomes and integrate contextual factors such as exploitation status (Spring et al., 2021). Its compatibility with probabilistic models like EPSS represents a significant advancement in evidence-based vulnerability management (Jacobs et al., 2021). However, the practical implementation challenges identified by Miriam are substantial: resource intensity, organisational complexity, and the inherent subjectivity in qualitative outputs (Dudley, 2022; Bahar and Wazan, 2024).
+Marina's hybrid approach appears most pragmatic, recognising that CVSS remains embedded in compliance frameworks and vendor ecosystems (PCI Security Standards Council, 2017). The regulatory constraints highlighted by Miriam further support this position, as organisations cannot simply abandon CVSS due to mandatory requirements.
+The emerging consensus suggests that while SSVC represents a methodological improvement, a transitional strategy is necessary. CVSS should be retained for baseline technical severity communication and regulatory compliance, while SSVC operationalised with EPSS should guide operational prioritisation decisions. This approach addresses both the theoretical limitations of CVSS and the practical realities of organisational vulnerability management, allowing for gradual evolution rather than disruptive replacement.
+References
+Allodi, L. and Massacci, F. (2014) 'Comparing vulnerability severity and exploits using case-control studies', Proceedings of ACM CCS, pp. 145-156. Available at: https://doi.org/10.1145/2660267.2660363 (Accessed: 05/09/2025).
+Bahar, A. and Wazan, A.S. (2024) 'On the validity of traditional vulnerability scoring systems for adversarial attacks against LLMs'. Available at: https://arxiv.org/abs/2412.20087 (Accessed: 26/08/2025).
+Dudley, A. (2022) What is SSVC (Stakeholder-Specific Vulnerability Categorization)? Available at: https://nucleussec.com/blog/what-is-ssvc-stakeholder-specific-vulnerability-categorization/ (Accessed: 14/09/2025).
+Howland, H. (2023) 'CVSS: Ubiquitous and broken', Digital Threats: Research and Practice, 4(1), article 7. Available at: https://doi.org/10.1145/3491263 (Accessed: 05/09/2025).
+Jacobs, J., Romanosky, S., Edwards, B., Roytman, M. and Adjerid, I. (2021) 'Exploit prediction scoring system (EPSS)', Digital Threats: Research and Practice, 2(3), article 16. Available at: https://doi.org/10.1145/3436242 (Accessed: 05/09/2025).
+PCI Security Standards Council (2017) Information supplement: Penetration testing guidance. Available at: https://www.pcisecuritystandards.org/documents/Penetration-Testing-Guidance-v1_1.pdf (Accessed: 29/05/2025).
+Spring, J.M., Hatleback, E., Householder, A., Manion, A. and Shick, D. (2021) Prioritizing vulnerability response: SSVC v2.0. Pittsburgh: Carnegie Mellon University Software Engineering Institute. Available at: https://www.sei.cmu.edu/library/prioritizing-vulnerability-response-a-stakeholder-specific-vulnerability-categorization-version-20/ (Accessed: 05/09/2025).
+</p>
+                    <span class="artifact-badge">Discussion Forum- Summary Post</span>
                 </div>
 
                 <div class="unit-card">
